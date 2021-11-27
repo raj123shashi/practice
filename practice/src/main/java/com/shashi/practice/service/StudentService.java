@@ -12,7 +12,8 @@ import com.shashi.practice.repository.StudentRepo;
 
 
 @Service
-public class StudentService implements StudentDecleration{
+public class StudentService implements StudentDecleration {
+	
 	@Autowired
 	private StudentRepo stdRepo;
 	
@@ -36,12 +37,17 @@ public class StudentService implements StudentDecleration{
 	}
 
 	@Override
-	public void updateStd(int id, Student std) {
-		Optional<Student> stdId = stdRepo.findById(id);
-		Student getStudent =stdId.get();
-		getStudent.setBranch(std.getBranch());
-		getStudent.setName(std.getName());
-		stdRepo.save(getStudent);
+	public Student updateStd(int id, Student std) {
+		Optional<Student> getStudent = stdRepo.findById(id);
+		if(getStudent.isPresent()) {
+			Student oldStudent = getStudent.get();
+			oldStudent.setName(std.getName());
+			oldStudent.setBranch(std.getBranch());
+			oldStudent = stdRepo.save(oldStudent);
+			return oldStudent;
+		}else {
+			throw new NotfoundException("No student exist for given id: "+ id);
+		}
 		
 	}
 

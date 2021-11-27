@@ -14,7 +14,7 @@ public interface StudentDecleration {
 		
 		public String deleteStdById(int theId);
 		
-		public void updateStd( int id , Student std);
+		public Student updateStd( int id , Student std);
 		
 		public Student findOneStudent(int id);
 		
