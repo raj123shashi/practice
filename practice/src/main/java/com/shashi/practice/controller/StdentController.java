@@ -16,29 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shashi.practice.entity.Student;
 import com.shashi.practice.service.StudentService;
 
-
-
-
-
-
 @RestController
 public class StdentController {
 	@Autowired
 	private StudentService stdService;
-	
+
 	@PostMapping("/addStudent")
 	public Student addStudent(@RequestBody Student std) {
 		stdService.saveStd(std);
 		return std;
 	}
+
 	@GetMapping("/getAllStudent")
-	public List<Student> getStd(){
+	public List<Student> getStd() {
 		return stdService.getAllStd();
-		}
-	
+	}
+
 	@PutMapping("/studentUpdate/{sid}")
-	public Student updateStudente(@PathVariable("sid")  Integer id, @RequestBody Student theStd) {
-		stdService.updateStd(id,theStd);
+	public Student updateStudente(@PathVariable("sid") Integer id, @RequestBody Student theStd) {
+		stdService.updateStd(id, theStd);
 		return theStd;
 	}
 
@@ -46,6 +42,11 @@ public class StdentController {
 	public String delete(@PathVariable("sid") Integer id) {
 		System.out.println("from delete");
 		return stdService.deleteStdById(id);
-		
+
+	}
+	
+	@GetMapping("/getAllStudent/{id}")
+	public Student getStudentById(@PathVariable("id") Integer id) {
+		return stdService.findOneStudent(id);
 	}
 }

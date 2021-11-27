@@ -46,10 +46,15 @@ public class StudentService implements StudentDecleration{
 	}
 
 	@Override
-	public Student findOneStudent(int id) throws NotfoundException {
-		Student student = stdRepo.findById(id).get();
-		 return student;
+	public Student findOneStudent(int id) {
+		Optional<Student> std = stdRepo.findById(id);
+		if(std.isPresent()) {
+			return std.get();
+		}else {
+			throw new NotfoundException("No student exist for given id: "+ id);
+		}
 	}
+
 
 
 

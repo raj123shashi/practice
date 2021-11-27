@@ -7,12 +7,16 @@ import com.shashi.practice.entity.Student;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class NotfoundException extends RuntimeException {
-     String message;
-	    private static final long serialVersionUID = 1L;
+	
+	String message;
+	
+	private static final long serialVersionUID = 1L;
+	
 
-	    public NotfoundException(String message){
-	        super(message);
-	    }
+	public NotfoundException(String message) {
+		super(message);
+	}
+	
 	}
 
     

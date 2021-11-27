@@ -16,7 +16,7 @@ public interface StudentDecleration {
 		
 		public void updateStd( int id , Student std);
 		
-		public Optional<Student>  findOneStudent(int id);
+		public Student findOneStudent(int id);
 		
 
 }
