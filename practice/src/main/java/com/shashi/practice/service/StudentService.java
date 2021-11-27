@@ -46,7 +46,7 @@ public class StudentService implements StudentDecleration {
 			oldStudent = stdRepo.save(oldStudent);
 			return oldStudent;
 		}else {
-			throw new NotfoundException("No student exist for given id: "+ id);
+			throw new NotfoundException("No student exist for given id:------ "+ id);
 		}
 		
 	}
@@ -57,7 +57,7 @@ public class StudentService implements StudentDecleration {
 		if(std.isPresent()) {
 			return std.get();
 		}else {
-			throw new NotfoundException("No student exist for given id: "+ id);
+			throw new NotfoundException("No student exist for given id:----- "+ id);
 		}
 	}
 

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.shashi.practice.entity.Student;
 
-@ResponseStatus(value = HttpStatus.NOT_FOUND)
+//@ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class NotfoundException extends RuntimeException {
 	
 	String message;
